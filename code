@@ -1,0 +1,441 @@
+ #include<iostream>
+// #include<conio.h>
+ #include<math.h>
+ #include<stdlib.h>
+ #include<iomanip>
+ using namespace std;
+
+ char Choose_List;
+ char semister;
+ char ad_dr;
+
+  float check_Point(string); // Function Declaration Semister 1
+  string mark_to_grade(float); // Function Declaration Semister 1
+
+   // Function Initilzation
+
+  void Semister(){
+  cout << endl;
+    cout << "\t#--- Choose Semister ---#\n\n";
+    cout << "\tFor Semister 1 Press 1\n";
+    cout << "\tFor Semister 2 Press 2\n";
+    cout << "\tFor BackUp Press 0\n\n";
+    cout << "\t: ";
+    cin >> semister;
+   }
+
+  void Sam1(){
+
+     char Fname[13],Mname[15],Lname[18],Sec[15],Pass[8];
+     char pass[8]; // login pass
+     int y,n,one,two,three;
+     int check = 3;
+     float Eng , Math , Cs , Eco , Civ , Antro ;
+     float Aver = 0;
+
+    cout << endl ;
+      cout << "\t\t\tEnter Your First Name: \n";
+     cout << "\t\t\t: ";cin >> Fname;
+     cout << "\t\t\tEnter Your Middle Name: \n";
+     cout << "\t\t\t: ";cin >> Mname;
+     cout << "\t\t\tEnter Your Last Name: \n";
+     cout << "\t\t\t: ";cin >> Lname;
+     cout << "\t\t\tEnter Your Section: \n";
+     cout << "\t\t\t: ";cin >> Sec;
+     cout << "\t\t\tEnter Your Password: \n";
+     cout << "\t\t\t: ";cin >> Pass;
+     cout << endl ;
+
+
+
+    cout << "  Enter Your English Mark: ";
+    cin >> Eng;
+    cout << "  Enter Your MathMathics Mark: ";
+    cin >> Math;
+    cout << "  Enter Your Programming Mark: ";
+    cin >> Cs;
+    cout << "  Enter Your Economics Mark: ";
+    cin >> Eco;
+    cout << "  Enter Your Civics Mark: ";
+    cin >> Civ;
+    cout << "  Enter Your Antropology Mark: ";
+    cin >> Antro;
+    cout << endl;
+
+    int Cs_Cr=4, Eng_Cr=3, Civ_Cr=2, Eco_Cr=3, Math_Cr=3, Ant_cr=2, Full_Cr1;
+    Full_Cr1 = Cs_Cr + Eng_Cr + Civ_Cr + Eco_Cr + Math_Cr + Ant_cr;
+
+    // Aver = prog + logic + Pycho / check;
+
+    string Egrade,Mgrade,Csgrade,Cigrade,Ecgrade,Agrade;
+        Egrade=mark_to_grade(Eng);
+        Mgrade=mark_to_grade(Math);
+        Csgrade=mark_to_grade(Cs);
+        Cigrade=mark_to_grade(Civ);
+        Ecgrade=mark_to_grade(Eco);
+        Agrade=mark_to_grade(Antro);
+
+
+    float P_En , P_Ma , P_Cs , P_Ci, P_Ec, P_An ;
+        P_En=check_Point(Egrade);
+        P_Ma=check_Point(Mgrade);
+        P_Cs=check_Point(Csgrade);
+        P_Ci=check_Point(Cigrade);
+        P_Ec=check_Point(Ecgrade);
+        P_An=check_Point(Agrade);
+
+
+    float GPA1;
+    float sum1;
+
+
+ sum1 = (P_Cs * Cs_Cr) + (P_En * Eng_Cr) + (P_Ci * Civ_Cr) + (P_Ec * Eco_Cr) + (P_Ma * Math_Cr) + (P_An * Ant_cr);
+
+ GPA1 = sum1 / Full_Cr1;
+
+        cout << endl;
+        cout << "\tComputer Science Department" << endl;
+        cout << "\tSection: " << Sec << endl;
+        cout<<"  \tNAME: "<< Fname <<" "<< Mname <<" "<< Lname << endl << endl;
+        cout << " \t\t\t Mark/100" << " \t\t Point" << " \t\t Grade\n";
+        cout << "\t_______________________________________________________________\n";
+        cout << "\t^";
+        cout<<"  English  "<< "\t\t"<< Eng <<"\t\t"<< P_En <<"\t\t"<< Egrade<<endl;
+        cout << "\t^";
+        cout<<"  Mathmathics  "<< "\t"<< Math <<"\t\t"<< P_Ma <<"\t\t"<< Mgrade<<endl;
+        cout << "\t^";
+        cout<<"  Programming 1 "<< "\t"<< Cs <<"\t\t"<< P_Cs <<"\t\t"<< Csgrade <<endl;
+        cout << "\t^";
+        cout<<"  Civics "<<"\t\t"<< Civ <<"\t\t"<< P_Ci <<"\t\t"<< Cigrade<<endl;
+        cout << "\t^";
+        cout<<"  Economics  "<< "\t\t"<< Eco <<"\t\t"<< P_Ec <<"\t\t"<< Ecgrade<<endl;
+        cout << "\t^";
+        cout<<"  Antropology  "<<"\t"<< Antro <<"\t\t"<< P_An <<"\t\t"<< Agrade<<endl;
+        cout << "\t^";
+        cout << endl;
+        cout << "\t_______________________________________________________________\n";
+        cout << "  \tTotal GPA"<< "\t\t\t\t\t\t" << GPA1;
+
+    cout << endl << endl;
+        cout << "\t\t\t.............................\n";
+        cout << "\t\t\t|                           |\n" ;
+        cout << "\t\t\t|   >90  -------------- A+  |\n" ;
+        cout << "\t\t\t|  80-89 -------------- A   |\n" ;
+        cout << "\t\t\t|  78-79 -------------- A-  |\n" ;
+        cout << "\t\t\t|  75-77 -------------- B+  |\n" ;
+        cout << "\t\t\t|  70-74 -------------- B   |\n" ;
+        cout << "\t\t\t|  65-69 -------------- B-  |\n" ;
+        cout << "\t\t\t|  55-64 -------------- c+  |\n" ;
+        cout << "\t\t\t|  45-54 -------------- C   |\n" ;
+        cout << "\t\t\t|  40-44 -------------- C-  |\n" ;
+        cout << "\t\t\t|  38-39 -------------- D+  |\n" ;
+        cout << "\t\t\t|  35-37 -------------- D   |\n" ;
+        cout << "\t\t\t|  30-34 -------------- D-  |\n" ;
+        cout << "\t\t\t|   <30  -------------- F   |\n" ;
+        cout << "\t\t\t|                           |\n" ;
+        cout << "\t\t\t.............................\n";
+
+    cout << endl;
+    }
+
+                      // Semister 2 Funcion
+
+    void Sam2(){
+                // Mulu ke Semister 1 New Copy Yehonew
+
+     char Fname[13],Mname[15],Lname[18],Sec[15],Pass[8];
+     char pass[8]; // login pass
+     int y,n,one,two,three;
+     int check = 3;
+     float Eng , Math , Cs , Eco , Civ , Antro ;
+     float Aver = 0;
+
+    cout << endl ;
+      cout << "\t\t\tEnter Your First Name: \n";
+     cout << "\t\t\t: ";cin >> Fname;
+     cout << "\t\t\tEnter Your Middle Name: \n";
+     cout << "\t\t\t: ";cin >> Mname;
+     cout << "\t\t\tEnter Your Last Name: \n";
+     cout << "\t\t\t: ";cin >> Lname;
+     cout << "\t\t\tEnter Your Section: \n";
+     cout << "\t\t\t: ";cin >> Sec;
+     cout << "\t\t\tEnter Your Password: \n";
+     cout << "\t\t\t: ";cin >> Pass;
+     cout << endl ;
+
+
+
+    cout << "  Enter Your English Mark: ";
+    cin >> Eng;
+    cout << "  Enter Your Emerging Mark: ";
+    cin >> Math;
+    cout << "  Enter Your Programming 1 Mark: ";
+    cin >> Cs;
+    cout << "  Enter Your Pychology Mark: ";
+    cin >> Eco;
+    cout << "  Enter Your Geography Mark: ";
+    cin >> Civ;
+    cout << "  Enter Your Logic Mark: ";
+    cin >> Antro;
+    cout << endl;
+
+    int Cs_Cr=4, Eng_Cr=3, Civ_Cr=2, Eco_Cr=3, Math_Cr=3, Ant_cr=2, Full_Cr1;
+    Full_Cr1 = Cs_Cr + Eng_Cr + Civ_Cr + Eco_Cr + Math_Cr + Ant_cr;
+
+    // Aver = prog + logic + Pycho / check;
+
+    string Egrade,Mgrade,Csgrade,Cigrade,Ecgrade,Agrade;
+        Egrade=mark_to_grade(Eng);
+        Mgrade=mark_to_grade(Math);
+        Csgrade=mark_to_grade(Cs);
+        Cigrade=mark_to_grade(Civ);
+        Ecgrade=mark_to_grade(Eco);
+        Agrade=mark_to_grade(Antro);
+
+
+    float P_En , P_Ma , P_Cs , P_Ci, P_Ec, P_An ;
+        P_En=check_Point(Egrade);
+        P_Ma=check_Point(Mgrade);
+        P_Cs=check_Point(Csgrade);
+        P_Ci=check_Point(Cigrade);
+        P_Ec=check_Point(Ecgrade);
+        P_An=check_Point(Agrade);
+
+
+    float GPA1;
+    float sum1;
+   // char response;
+
+ sum1 = (P_Cs * Cs_Cr) + (P_En * Eng_Cr) + (P_Ci * Civ_Cr) + (P_Ec * Eco_Cr) + (P_Ma * Math_Cr) + (P_An * Ant_cr);
+
+ GPA1 = sum1 / Full_Cr1;
+
+        cout << endl;
+        cout << "\tComputer Science Department" << endl;
+        cout << "\tSection: " << Sec << endl;
+        cout<<"  \tNAME: "<< Fname <<" "<< Mname <<" "<< Lname << endl << endl;
+        cout << " \t\t\t Mark/100" << " \t\t Point" << " \t\t Grade\n";
+        cout << "\t_______________________________________________________________\n";
+        cout << "\t^";
+        cout<<"  English  "<< "\t\t"<< Eng <<"\t\t"<< P_En <<"\t\t"<< Egrade<<endl;
+        cout << "\t^";
+        cout<<"  Emerging  "<< "\t\t"<< Math <<"\t\t"<< P_Ma <<"\t\t"<< Mgrade<<endl;
+        cout << "\t^";
+        cout<<"  Programming 1 "<< "\t"<< Cs <<"\t\t"<< P_Cs <<"\t\t"<< Csgrade <<endl;
+        cout << "\t^";
+        cout<<"  Geography "<<"\t\t"<< Civ <<"\t\t"<< P_Ci <<"\t\t"<< Cigrade<<endl;
+        cout << "\t^";
+        cout<<"  Pychology  "<< "\t\t"<< Eco <<"\t\t"<< P_Ec <<"\t\t"<< Ecgrade<<endl;
+        cout << "\t^";
+        cout<<"  Logic  "<<"\t\t"<< Antro <<"\t\t"<< P_An <<"\t\t"<< Agrade<<endl;
+        cout << "\t^";
+        cout << endl;
+        cout << "\t_______________________________________________________________\n";
+        cout << "  \tTotal GPA"<< "\t\t\t\t\t\t" << GPA1;
+
+    cout << endl << endl;
+        cout << "\t\t\t.............................\n";
+        cout << "\t\t\t|                           |\n" ;
+        cout << "\t\t\t|   >90  -------------- A+  |\n" ;
+        cout << "\t\t\t|  80-89 -------------- A   |\n" ;
+        cout << "\t\t\t|  78-79 -------------- A-  |\n" ;
+        cout << "\t\t\t|  75-77 -------------- B+  |\n" ;
+        cout << "\t\t\t|  70-74 -------------- B   |\n" ;
+        cout << "\t\t\t|  65-69 -------------- B-  |\n" ;
+        cout << "\t\t\t|  55-64 -------------- c+  |\n" ;
+        cout << "\t\t\t|  45-54 -------------- C   |\n" ;
+        cout << "\t\t\t|  40-44 -------------- C-  |\n" ;
+        cout << "\t\t\t|  38-39 -------------- D+  |\n" ;
+        cout << "\t\t\t|  35-37 -------------- D   |\n" ;
+        cout << "\t\t\t|  30-34 -------------- D-  |\n" ;
+        cout << "\t\t\t|   <30  -------------- F   |\n" ;
+        cout << "\t\t\t|                           |\n" ;
+        cout << "\t\t\t.............................\n";
+
+    cout << endl;
+
+
+
+     }
+
+  // Report Function
+  void Report(){
+       string riport;
+      cout << "Write Your Report Above \n\n";
+      cout << "-> ";
+      cin >> riport;
+
+      cout << "Thank Your For Reporting.";
+  }
+
+  // Contact Functin
+  void Contact(){
+       string contact;
+       cout << "Wellcome To St.Mary University CS Department\n";
+       cout << "What can we Help You ?\n";
+       cin >> contact;
+   }
+
+  // Add & Drop Function
+  void Add_Drop(){
+    cout << endl;
+       cout << "\tPress 1 To Add \n";
+       cout << "\tPress 2 To Drop\n";
+       cout << "\tPress 0 To Exit\n";
+       cout << "\t:";cin >> ad_dr;
+   }
+  void Add(){
+       string cou;
+      cout << "Enter Course: \n";
+      cout << ":"; cin >> cou;
+      cout << endl;
+      cout << "Thank you We Will Send to You the date \n";
+      cout << endl << endl ;
+    }
+  void Dor(){
+   string cou,ress;
+      cout << "Enter Course: \n";
+      cout << ":"; cin >> cou;
+      cout << "\tThe Reason Of Droping: \n";
+      cout << "\t:"; cin >> ress;
+      cout << endl;
+      cout << "\tThank you We Will Send to You the date \n";
+      cout << endl << endl ;
+   }
+
+  // Boos Main
+  int main(){
+    system("cls");
+    do{
+
+    system("pause");
+    system("cls");
+    cout << endl; // used to top space
+     cout << "\t>>>>>>>> Wellcome to St Mary University <<<<<<<<<<<\n";
+     cout << endl;
+    cout<<"\t\t: What Do You Went ToDay :\n\n";
+    cout<<"\tpress 1 To Check Your Grade \n";
+    cout<<"\tpress 2 To Report \n";
+    cout<<"\tpress 3 To Contact Department\n";
+
+    cout<<"\tpress 4 To Add & Drop \n";
+    cout<<"\tpress 0 for exit\n\n";
+    cout<<"\t: ";
+
+    cin>>Choose_List;
+    switch(Choose_List){
+              case '1':
+              Semister();
+              break;
+              case '2':
+              Report();
+              break;
+              case '3':
+              Contact();
+              break;
+              case '4':
+              Add_Drop();
+              break;
+              case '0':
+              exit(0);
+              default:
+              cout<<"Please Enter Correct Number 0-4 "  ;
+              system("cls");
+    }
+
+     switch(semister){
+          case '1':
+          Sam1();
+          break;
+          case '2':
+          Sam2();
+          break;
+          case '0':
+          exit(0);
+          default :
+          cout << "\tPlease Enter Correct Number 0-2 ";
+
+     }
+     switch(ad_dr){
+         case '1':
+         Add();
+         break;
+         case '2':
+         Dor();
+         break;
+         case '0':
+         exit(0);
+         default :
+        // cout << "Please Enter Correct Number 0-2";
+         system("cls");
+      }
+
+    }
+
+    while(Choose_List!='0');
+
+//                   getch();
+  //   system("cls");
+                    }
+
+      string mark_to_grade(float chk){
+            if (chk > 90)
+                return "A+";
+            else if (chk >= 80)
+                return "A";
+            else if (chk >= 80)
+                return "A-";
+
+            else if (chk >= 75)
+                return "B+";
+            else if (chk >= 70)
+                return "B";
+            else if (chk >= 65)
+                return "B-";
+
+            else if (chk >=55)
+                return "C+";
+            else if (chk >=45)
+                return "C";
+            else if (chk >=40)
+                return "C-";
+
+
+            else if (chk >= 38)
+                return "D+";
+            else if (chk >= 35)
+                return "D";
+            else if (chk >= 30)
+                return "D-";
+            else
+                return "F";
+    }
+
+    float check_Point(string GpaOut){
+            if (GpaOut == "A+")
+                return 4;
+            else if (GpaOut == "A")
+                return 4;
+            else if (GpaOut == "A-")
+                return 3.67;
+            else if (GpaOut == "B+")
+                return 3.33;
+            else if (GpaOut == "B")
+                return 3;
+            else if (GpaOut == "B-")
+                return 2.67;
+            else if (GpaOut == "C+")
+                return 2.33;
+            else if (GpaOut == "C")
+                return 2;
+            else if (GpaOut == "C-")
+                return 1.67;
+            else if (GpaOut == "D+")
+                return 1.33;
+            else if (GpaOut == "D")
+                return 1;
+            else if (GpaOut == "D-")
+                return 0.67;
+            else
+                return 0;
+    }
